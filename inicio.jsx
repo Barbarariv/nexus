@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Inicio() {
   const [isCalmMode, setIsCalmMode] = useState(false);
@@ -53,9 +54,9 @@ export default function Inicio() {
         import { Link } from 'react-router-dom'; // 1. IMPORTA LINK AQUÍ ARRIBA
 
 // ... luego en tu grid:
+{/* Grid de opciones */}
 <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
   {['Actividades', 'Rutinas', 'Comunicación', 'Juegos'].map((item) => (
-    // 2. ENVUELVE EL DIV EN UN LINK SI EL ITEM ES "Actividades"
     <Link to={item === 'Actividades' ? '/actividades' : '#'} key={item}>
       <div className={`p-8 rounded-3xl shadow-lg border transition-transform hover:scale-105 cursor-pointer ${
         isCalmMode ? "bg-slate-800 border-slate-700" : "bg-white border-blue-100"
