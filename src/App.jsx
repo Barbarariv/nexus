@@ -1,6 +1,6 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Inicio from './Inicio';
-import Actividades from './Actividades';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Inicio from "./Inicio"; // Verifica que el nombre del archivo sea exacto
+import Actividades from "./Actividades";
 
 function App() {
   return (
