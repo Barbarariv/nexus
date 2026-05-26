@@ -18,8 +18,31 @@ function App() {
 
       {/* Hero */}
       <main className="max-w-6xl mx-auto py-16 px-4 text-center">
-        <h2 className="text-5xl font-extrabold mb-6">Aprendemos juntos, crecemos juntos</h2>
-        <p className="text-xl text-slate-600 mb-12">Actividades, rutinas y herramientas para niños neurodivergentes y sus familias.</p>
+        JavaScript
+<h2 className={`text-5xl font-extrabold mb-6 ${isCalmMode ? "text-white" : "text-slate-900"}`}>
+  Aprendemos juntos, crecemos juntos
+</h2>
+
+<p className={`text-xl mb-12 ${isCalmMode ? "text-slate-300" : "text-slate-600"}`}>
+  Actividades, rutinas y herramientas para niños neurodivergentes y sus familias.
+</p>
+        <div className="flex justify-center gap-4">
+  <button className={`px-8 py-3 rounded-full font-bold transition-all ${
+    isCalmMode 
+      ? "bg-purple-600 text-white hover:bg-purple-700" 
+      : "bg-blue-600 text-white hover:bg-blue-700"
+  }`}>
+    Comenzar
+  </button>
+  
+  <button className={`px-8 py-3 rounded-full font-bold border-2 transition-all ${
+    isCalmMode 
+      ? "border-purple-400 text-purple-300 hover:bg-purple-900" 
+      : "border-blue-600 text-blue-600 hover:bg-blue-50"
+  }`}>
+    Para familias
+  </button>
+</div>
         
         {/* Grid de opciones */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">

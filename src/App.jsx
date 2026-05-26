@@ -35,18 +35,20 @@ function App() {
       {/* HERO SECTION */}
       <main className="max-w-7xl mx-auto px-12 py-16">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 mb-20">
-          <div className="max-w-xl">
-        
+  <div className="max-w-xl">
+  {/* Ajustamos el color del título según el modo */}
+  <h1 className={`text-5xl font-black ${isCalmMode ? "text-white" : "text-blue-900"}`}>
+    <span className="text-blue-600">Aprendamos juntos, </span>
+    <span className="text-orange-500">crezcamos juntos</span>
+  </h1>
 
-<h1 className="text-3xl font-black">
-  <span className="text-blue-600">Aprendamos juntos, </span>
-  <span className="text-orange-500">crezcamos juntos</span>
-</h1>
-            <p className="text-xl text-slate-600 mb-8">Actividades, rutinas y herramientas para niños neurodivergentes y sus familias.</p>
-            <div className="flex gap-4">
-              <button className="bg-blue-600 text-white px-8 py-3 rounded-full font-bold shadow-lg">Comenzar</button>
-              <button className="bg-white text-blue-600 px-8 py-3 rounded-full font-bold border border-blue-200">Para familias</button>
-            </div>
+  {/* Ajustamos el color del párrafo según el modo */}
+  <p className={`mt-6 text-lg ${isCalmMode ? "text-slate-300" : "text-slate-600"}`}>
+    Actividades, rutinas y herramientas para niños neurodivergentes y sus familias.
+  </p>
+  
+  {/* Repite esta lógica en los botones también */}
+</div>
           </div>
        <div className="w-80 h-80 bg-blue-200 rounded-full flex items-center justify-center animate-pulse overflow-hidden">
   <img 
