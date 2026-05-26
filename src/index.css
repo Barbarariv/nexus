@@ -91,3 +91,23 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+.titulo-principal {
+  font-size: 3rem; /* Ajusta según tu diseño */
+  font-weight: bold;
+}
+
+/* Usamos !important para asegurar que el color gane sobre cualquier otra regla */
+.titulo-principal {
+  font-size: 3rem !important;
+  font-weight: bold !important;
+  color: #333333 !important; /* Un gris muy oscuro, casi negro, para que resalte */
+}
+
+/* Clases específicas para tus colores */
+.texto-azul {
+  color: #0070f3 !important; /* Azul profesional */
+}
+
+.texto-naranja {
+  color: #f5a623 !important; /* Naranja vibrante */
+}

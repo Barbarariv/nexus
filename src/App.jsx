@@ -36,7 +36,11 @@ function App() {
       <main className="max-w-7xl mx-auto px-12 py-16">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 mb-20">
           <div className="max-w-xl">
-            <h1 className="text-6xl font-extrabold leading-tight mb-6">Aprendemos juntos, <span className="text-blue-600">crecemos</span> juntos</h1>
+        
+<h1 className="titulo-principal" translate="no">
+  <span className="texto-azul">Aprendamos juntos, </span>
+  <span className="texto-naranja">crezcamos juntos.</span>
+</h1>
             <p className="text-xl text-slate-600 mb-8">Actividades, rutinas y herramientas para niños con TEA y sus familias.</p>
             <div className="flex gap-4">
               <button className="bg-blue-600 text-white px-8 py-3 rounded-full font-bold shadow-lg">Comenzar</button>
