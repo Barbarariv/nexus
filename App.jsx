@@ -19,7 +19,7 @@ function App() {
       {/* Hero */}
       <main className="max-w-6xl mx-auto py-16 px-4 text-center">
         <h2 className="text-5xl font-extrabold mb-6">Aprendemos juntos, crecemos juntos</h2>
-        <p className="text-xl text-slate-600 mb-12">Actividades, rutinas y herramientas para niños con TEA y sus familias.</p>
+        <p className="text-xl text-slate-600 mb-12">Actividades, rutinas y herramientas para niños neurodivergentes y sus familias.</p>
         
         {/* Grid de opciones */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">

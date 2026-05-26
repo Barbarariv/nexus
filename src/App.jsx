@@ -37,20 +37,25 @@ function App() {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 mb-20">
           <div className="max-w-xl">
         
-<h1 className="titulo-principal" translate="no">
-  <span className="texto-azul">Aprendamos juntos, </span>
-  <span className="texto-naranja">crezcamos juntos.</span>
+
+<h1 className="text-3xl font-black">
+  <span className="text-blue-600">Aprendamos juntos, </span>
+  <span className="text-orange-500">crezcamos juntos</span>
 </h1>
-            <p className="text-xl text-slate-600 mb-8">Actividades, rutinas y herramientas para niños con TEA y sus familias.</p>
+            <p className="text-xl text-slate-600 mb-8">Actividades, rutinas y herramientas para niños neurodivergentes y sus familias.</p>
             <div className="flex gap-4">
               <button className="bg-blue-600 text-white px-8 py-3 rounded-full font-bold shadow-lg">Comenzar</button>
               <button className="bg-white text-blue-600 px-8 py-3 rounded-full font-bold border border-blue-200">Para familias</button>
             </div>
           </div>
-          <div className="w-80 h-80 bg-blue-200 rounded-full flex items-center justify-center animate-pulse">
-            {/* Aquí iría la ilustración principal */}
-          </div>
-        </div>
+       <div className="w-80 h-80 bg-blue-200 rounded-full flex items-center justify-center animate-pulse overflow-hidden">
+  <img 
+    src="/nexus-principal.png"
+    alt="Ilustración principal" 
+    className="w-full h-full object-cover" 
+  />
+</div>
+</div>
 
         {/* TARJETAS */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
