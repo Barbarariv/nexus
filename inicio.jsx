@@ -1,73 +1,49 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Brain, Calendar, MessageCircle, Gamepad2, ArrowRight, Sun, Moon } from 'lucide-react';
 
 export default function Inicio() {
   const [isCalmMode, setIsCalmMode] = useState(false);
 
+  const cards = [
+    { title: 'Actividades', icon: Brain, color: 'bg-purple-50', iconColor: 'text-purple-600', desc: 'Explora actividades sensoriales y creativas.', link: '/actividades' },
+    { title: 'Rutinas', icon: Calendar, color: 'bg-green-50', iconColor: 'text-green-600', desc: 'Organiza el día con rutinas visuales.', link: '#' },
+    { title: 'Comunicación', icon: MessageCircle, color: 'bg-orange-50', iconColor: 'text-orange-600', desc: 'Comunicación con pictogramas y apoyo visual.', link: '#' },
+    { title: 'Juegos', icon: Gamepad2, color: 'bg-blue-50', iconColor: 'text-blue-600', desc: 'Juegos educativos para aprender jugando.', link: '#' }
+  ];
+
   return (
-    <div className={isCalmMode ? "bg-slate-900 text-white min-h-screen transition-colors" : "bg-blue-50 text-slate-900 min-h-screen transition-colors"}>
+    <div className={`min-h-screen font-sans ${isCalmMode ? 'bg-slate-900 text-white' : 'bg-sky-50 text-slate-950'}`}>
       
-      {/* Header */}
-      <nav className={`flex justify-between items-center p-8 shadow-sm transition-colors ${
-        isCalmMode ? "bg-slate-800 text-white" : "bg-white text-blue-900"
-      }`}>
-        <h1 className="text-3xl font-black">NEXUS</h1>
-        <button 
-          onClick={() => setIsCalmMode(!isCalmMode)}
-          className={`px-6 py-2 rounded-full font-bold transition ${
-            isCalmMode ? "bg-purple-700 hover:bg-purple-600" : "bg-blue-100 hover:bg-blue-200 text-blue-800"
-          }`}
-        >
-          {isCalmMode ? "☀️ Modo Día" : "🌙 Modo Calma"}
+      {/* NAVBAR */}
+      <nav className="flex justify-between items-center px-12 py-4 bg-white shadow-sm sticky top-0 z-50">
+        <div className="flex items-center gap-2">
+          <span className="text-2xl font-black text-blue-900 tracking-tight">NEXUS</span>
+        </div>
+        
+        <button onClick={() => setIsCalmMode(!isCalmMode)} className="flex items-center gap-2 bg-amber-100 px-6 py-2 rounded-full font-bold text-amber-800">
+          {isCalmMode ? <Sun size={18} /> : <Moon size={18} />} Modo Calma
         </button>
       </nav>
 
-      {/* Hero */}
-      <main className="max-w-6xl mx-auto py-16 px-4 text-center">
-        <h2 className={`text-5xl font-extrabold mb-6 ${isCalmMode ? "text-white" : "text-slate-900"}`}>
-          Aprendemos juntos, crecemos juntos
-        </h2>
+      {/* HERO */}
+      <main className="max-w-7xl mx-auto px-12 py-16">
+        <h1 className="text-3xl font-black mb-12">
+          <span className="text-blue-600">Aprendamos juntos, </span>
+          <span className="text-orange-500">crezcamos juntos</span>
+        </h1>
 
-        <p className={`text-xl mb-12 ${isCalmMode ? "text-slate-300" : "text-slate-600"}`}>
-          Actividades, rutinas y herramientas para niños neurodivergentes y sus familias.
-        </p>
-
-        <div className="flex justify-center gap-4 mb-20">
-          <button className={`px-8 py-3 rounded-full font-bold transition-all ${
-            isCalmMode 
-              ? "bg-purple-600 text-white hover:bg-purple-700" 
-              : "bg-blue-600 text-white hover:bg-blue-700"
-          }`}>
-            Comenzar
-          </button>
-          
-          <button className={`px-8 py-3 rounded-full font-bold border-2 transition-all ${
-            isCalmMode 
-              ? "border-purple-400 text-purple-300 hover:bg-purple-900" 
-              : "border-blue-600 text-blue-600 hover:bg-blue-50"
-          }`}>
-            Para familias
-          </button>
+        {/* GRID DE TARJETAS */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {cards.map((card) => (
+           <Link to="/actividades"> {/* 2. ENVUELVE LA TARJETA EN UN LINK */}
+  <div className={`${card.color} p-6 rounded-3xl ...`}>
+    <card.icon size={40} className={`${card.iconColor} mb-4`} />
+    <h3 className="text-xl font-bold">{card.title}</h3>
+  </div>
+</Link>
+          ))}
         </div>
-        
-        {/* Grid de opciones */}
-        import { Link } from 'react-router-dom'; // 1. IMPORTA LINK AQUÍ ARRIBA
-
-// ... luego en tu grid:
-{/* Grid de opciones */}
-<div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-  {['Actividades', 'Rutinas', 'Comunicación', 'Juegos'].map((item) => (
-    <Link to={item === 'Actividades' ? '/actividades' : '#'} key={item}>
-      <div className={`p-8 rounded-3xl shadow-lg border transition-transform hover:scale-105 cursor-pointer ${
-        isCalmMode ? "bg-slate-800 border-slate-700" : "bg-white border-blue-100"
-      }`}>
-        <h3 className={`text-xl font-bold ${isCalmMode ? "text-white" : "text-blue-900"}`}>
-          {item}
-        </h3>
-      </div>
-    </Link>
-  ))}
-</div>
       </main>
     </div>
   );
