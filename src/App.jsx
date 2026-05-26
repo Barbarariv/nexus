@@ -3,6 +3,7 @@ import { Brain, Calendar, MessageCircle, Gamepad2, ArrowRight, Sun, Moon, Users,
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Inicio from "./Inicio"; // Verifica que el nombre del archivo sea exacto
 import Actividades from "./Actividades";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 function App() {
   const [isCalmMode, setIsCalmMode] = useState(false);
 
@@ -21,24 +22,26 @@ function App() {
       {/* NAVBAR */}
       <nav className="flex justify-between items-center px-12 py-4 bg-white shadow-sm sticky top-0 z-50">
   <div className="flex items-center gap-2">
-    {/* AQUÍ ES DONDE DEBES PEGAR EL CÓDIGO DEL LOGO */}
+    {/* Imagen del logo cargada desde la carpeta public */}
     <img 
       src="/logo.png" 
       alt="NEXUS" 
       className="h-12 w-auto" 
     />
-    {/* Si quieres que el texto "NEXUS" aparezca al lado del logo, déjalo abajo, si no, puedes borrar este span */}
     <span className="text-2xl font-black text-blue-900 tracking-tight">NEXUS</span>
   </div>
-        
-        <div className="hidden lg:flex gap-6 font-semibold text-slate-700">
-          {navItems.map(item => <a key={item} href="#" className="hover:text-blue-600">{item}</a>)}
-        </div>
+  
+  {/* Asegúrate de usar Link para que la navegación funcione */}
+  <div className="hidden lg:flex gap-6 font-semibold text-slate-700">
+    <Link to="/" className="hover:text-blue-600">Inicio</Link>
+    <Link to="/actividades" className="hover:text-blue-600">Actividades</Link>
+    {/* Agrega aquí los demás enlaces con <Link to="/ruta"> */}
+  </div>
 
-        <button onClick={() => setIsCalmMode(!isCalmMode)} className="flex items-center gap-2 bg-amber-100 px-6 py-2 rounded-full font-bold text-amber-800">
-          {isCalmMode ? <Sun size={18} /> : <Moon size={18} />} Modo Calma
-        </button>
-      </nav>
+  <button onClick={() => setIsCalmMode(!isCalmMode)} className="flex items-center gap-2 bg-amber-100 px-6 py-2 rounded-full font-bold text-amber-800">
+    {isCalmMode ? <Sun size={18} /> : <Moon size={18} />} Modo Calma
+  </button>
+</nav>
 
       {/* HERO SECTION */}
       <main className="max-w-7xl mx-auto px-12 py-16">

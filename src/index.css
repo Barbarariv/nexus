@@ -96,7 +96,7 @@ code {
   font-weight: bold;
 }
 
-/* Usamos !important para asegurar que el color gane sobre cualquier otra regla */
+
 .titulo-principal {
   font-size: 3rem !important;
   font-weight: bold !important;
