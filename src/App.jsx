@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Brain, Calendar, MessageCircle, Gamepad2, ArrowRight, Sun, Moon, Users, BookOpen } from 'lucide-react';
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Inicio from "./Inicio"; // Verifica que el nombre del archivo sea exacto
+import Actividades from "./Actividades";
 function App() {
   const [isCalmMode, setIsCalmMode] = useState(false);
 
@@ -50,7 +52,7 @@ function App() {
           </div>
        <div className="w-80 h-80 bg-blue-200 rounded-full flex items-center justify-center animate-pulse overflow-hidden">
   <img 
-    src="/imagen.nexus (1).png" 
+    src="/nexus-principal.png"
     alt="Ilustración principal" 
     className="w-full h-full object-cover" 
   />
