@@ -7,9 +7,9 @@ export default function Inicio() {
 
   const cards = [
     { title: 'Actividades', icon: Brain, color: 'bg-purple-50', iconColor: 'text-purple-600', desc: 'Explora actividades sensoriales y creativas.', link: '/actividades' },
-    { title: 'Rutinas', icon: Calendar, color: 'bg-green-50', iconColor: 'text-green-600', desc: 'Organiza el día con rutinas visuales.', link: '#' },
-    { title: 'Comunicación', icon: MessageCircle, color: 'bg-orange-50', iconColor: 'text-orange-600', desc: 'Comunicación con pictogramas y apoyo visual.', link: '#' },
-    { title: 'Juegos', icon: Gamepad2, color: 'bg-blue-50', iconColor: 'text-blue-600', desc: 'Juegos educativos para aprender jugando.', link: '#' }
+    { title: 'Rutinas', icon: Calendar, color: 'bg-green-50', iconColor: 'text-green-600', desc: 'Organiza el día con rutinas visuales.', link: '/rutinas' },
+    { title: 'Comunicación', icon: MessageCircle, color: 'bg-orange-50', iconColor: 'text-orange-600', desc: 'Comunicación con pictogramas y apoyo visual.', link: '/comunicacion' },
+    { title: 'Juegos', icon: Gamepad2, color: 'bg-blue-50', iconColor: 'text-blue-600', desc: 'Juegos educativos para aprender jugando.', link: '/juegos' }
   ];
 
   return (
@@ -36,12 +36,18 @@ export default function Inicio() {
         {/* GRID DE TARJETAS */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {cards.map((card) => (
-           <Link to="/actividades"> {/* 2. ENVUELVE LA TARJETA EN UN LINK */}
-  <div className={`${card.color} p-6 rounded-3xl ...`}>
-    <card.icon size={40} className={`${card.iconColor} mb-4`} />
-    <h3 className="text-xl font-bold">{card.title}</h3>
-  </div>
-</Link>
+            <Link 
+              key={card.title} 
+              to={card.link} 
+              className="block transition-transform hover:scale-105"
+            >
+              <div className={`${card.color} p-6 rounded-3xl h-full flex flex-col items-center text-center shadow-sm`}>
+                <card.icon size={48} className={`${card.iconColor} mb-4`} />
+                <h3 className="text-xl font-bold mb-2">{card.title}</h3>
+                <p className="text-sm text-slate-600">{card.desc}</p>
+                <ArrowRight size={20} className="mt-4 text-slate-400" />
+              </div>
+            </Link>
           ))}
         </div>
       </main>
