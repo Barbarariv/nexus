@@ -1,73 +1,49 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { Brain, Calendar, MessageCircle, Gamepad2, ArrowRight, Sun, Moon } from 'lucide-react';
 
 export default function Inicio() {
-  const [isCalmMode, setIsCalmMode] = useState(false);
-
-  const cards = [
-    { title: 'Actividades', icon: Brain, color: 'bg-purple-50', iconColor: 'text-purple-600', desc: 'Explora actividades sensoriales y creativas.', link: '/actividades' },
-    { title: 'Rutinas', icon: Calendar, color: 'bg-green-50', iconColor: 'text-green-600', desc: 'Organiza el día con rutinas visuales.', link: '#' },
-    { title: 'Comunicación', icon: MessageCircle, color: 'bg-orange-50', iconColor: 'text-orange-600', desc: 'Comunicación con pictogramas y apoyo visual.', link: '#' },
-    { title: 'Juegos', icon: Gamepad2, color: 'bg-blue-50', iconColor: 'text-blue-600', desc: 'Juegos educativos para aprender jugando.', link: '#' }
-  ];
-
   return (
-    <div className={`min-h-screen font-sans ${isCalmMode ? 'bg-slate-900 text-white' : 'bg-sky-50 text-slate-950'}`}>
-      
-      {/* NAVBAR */}
-      <nav className="flex justify-between items-center px-12 py-4 bg-white shadow-sm sticky top-0 z-50">
-        <div className="flex items-center gap-2">
-          <span className="text-2xl font-black text-blue-900 tracking-tight">NEXUS</span>
-        </div>
-        
-        <button onClick={() => setIsCalmMode(!isCalmMode)} className="flex items-center gap-2 bg-amber-100 px-6 py-2 rounded-full font-bold text-amber-800">
-          {isCalmMode ? <Sun size={18} /> : <Moon size={18} />} Modo Calma
-        </button>
-      </nav>
-
-      {/* HERO */}
-      <main className="max-w-7xl mx-auto px-12 py-16">
-        <h1 className="text-3xl font-black mb-12">
-          <span className="text-blue-600">Aprendamos juntos, </span>
-          <span className="text-orange-500">crezcamos juntos</span>
+    <div className="max-w-4xl mx-auto space-y-12">
+      {/* Saludo Principal */}
+      <section className="text-center space-y-4">
+        <h1 className="text-5xl font-black text-blue-900">
+          Bienvenido a <span className="text-blue-600">NEXUS</span>
         </h1>
+        <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+          Un espacio diseñado para el acompañamiento, la organización y el desarrollo de habilidades.
+        </p>
+      </section>
 
-        {/* GRID DE TARJETAS */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {cards.map((card) => (
-           <Link to="/actividades"> {/* 2. ENVUELVE LA TARJETA EN UN LINK */}
-  <div className={`${card.color} p-6 rounded-3xl ...`}>
-    <card.icon size={40} className={`${card.iconColor} mb-4`} />
-    <h3 className="text-xl font-bold">{card.title}</h3>
-  </div>
-</Link>
-          ))}
+      {/* Tarjetas de Acceso Rápido */}
+      <section className="grid md:grid-cols-2 gap-8">
+        <div className="bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 transition-transform hover:scale-105">
+          <h2 className="text-2xl font-bold mb-4 text-slate-800">Explorar Actividades</h2>
+          <p className="text-slate-600 mb-6">Accede a herramientas sensoriales, gestión de rutinas y más.</p>
+          <Link 
+            to="/actividades" 
+            className="inline-block bg-blue-600 text-white px-6 py-3 rounded-full font-bold hover:bg-blue-700 transition-colors"
+          >
+            Ver Actividades
+          </Link>
         </div>
-      </main>
-    </div>
-  );
-}
-function App() {
-  return (
-    <div className="flex h-screen bg-sky-50">
-      {/* SIDEBAR FIJO */}
-      <aside className="w-64 bg-white p-6 flex flex-col gap-8 shadow-md">
-        <div className="font-black text-2xl text-blue-900">NEXUS</div>
-        <nav className="flex flex-col gap-4">
-          <Link to="/" className="flex items-center gap-3 p-3 rounded-xl hover:bg-sky-100">🏠 Inicio</Link>
-          <Link to="/juegos" className="flex items-center gap-3 p-3 rounded-xl bg-blue-500 text-white shadow-lg">🎮 Juegos</Link>
-          <Link to="/actividades" className="flex items-center gap-3 p-3 rounded-xl hover:bg-sky-100">🎨 Actividades</Link>
-        </nav>
-      </aside>
 
-      {/* CONTENIDO PRINCIPAL */}
-      <main className="flex-1 p-10 overflow-y-auto">
-        <Routes>
-          <Route path="/" element={<Inicio />} />
-          <Route path="/actividades" element={<Actividades />} />
-        </Routes>
-      </main>
+        <div className="bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 transition-transform hover:scale-105">
+          <h2 className="text-2xl font-bold mb-4 text-slate-800">Mi Progreso</h2>
+          <p className="text-slate-600 mb-6">Revisa tus logros, rutinas completadas y metas alcanzadas esta semana.</p>
+          <button 
+            className="inline-block bg-purple-600 text-white px-6 py-3 rounded-full font-bold hover:bg-purple-700 transition-colors"
+            onClick={() => alert("Próximamente disponible")}
+          >
+            Ver Mi Perfil
+          </button>
+        </div>
+      </section>
+
+      {/* Sección Informativa Extra */}
+      <section className="bg-sky-100 p-8 rounded-[2rem] text-center border-t-4 border-blue-200">
+        <h3 className="text-xl font-bold text-blue-900 mb-2">Consejo del día</h3>
+        <p className="text-blue-800 italic">"Pequeños pasos constantes llevan a grandes cambios positivos."</p>
+      </section>
     </div>
   );
 }
