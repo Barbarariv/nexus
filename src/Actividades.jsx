@@ -1,44 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Palette, Smile, Puzzle, Music, X } from 'lucide-react';
 
-function Actividades() {
+const Actividades = () => {
+  const [emocionSeleccionada, setEmocionSeleccionada] = useState(null);
+
   const emociones = [
-    { nombre: 'Feliz', emoji: '😊', color: 'bg-yellow-50 border-yellow-200' },
-    { nombre: 'Triste', emoji: '😢', color: 'bg-blue-50 border-blue-200' },
-    { nombre: 'Calmado', emoji: '😌', color: 'bg-green-50 border-green-200' },
-    { nombre: 'Preocupado', emoji: '😟', color: 'bg-purple-50 border-purple-200' },
+    { label: "Feliz", emoji: "😊", color: "bg-yellow-200" },
+    { label: "Triste", emoji: "😢", color: "bg-blue-200" },
+    { label: "Enojado", emoji: "😡", color: "bg-red-200" },
+    { label: "Cansado", emoji: "😴", color: "bg-purple-200" }
   ];
 
   return (
-    <main className="max-w-4xl mx-auto px-12 py-16 text-center">
-      {/* Título e instrucción */}
-      <h2 className="text-3xl font-black text-slate-800 mb-2">¿Cómo se siente?</h2>
-      <p className="text-lg text-slate-600 mb-10">
-        Mira la situación y elige la emoción que corresponde.
-      </p>
-
-      {/* Imagen de la situación */}
-      <div className="flex justify-center mb-12">
-        <img 
-          src="/niño.feliz.png" // nombre de tu imagen
-          alt="Situación del superhéroe" 
-          className="rounded-3xl shadow-lg max-w-sm" 
-        />
-      </div>
-
-      {/* Tarjetas de emociones */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-        {emociones.map((emocion) => (
-          <div 
-            key={emocion.nombre} 
-            className={`${emocion.color} p-6 rounded-3xl border-4 hover:shadow-lg transition-all cursor-pointer`}
+    <div className="p-12">
+      <h2 className="text-4xl font-bold text-slate-800 mb-8">¿Cómo te sientes hoy?</h2>
+      
+      {/* Panel de Emociones */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+        {emociones.map((emo) => (
+          <button 
+            key={emo.label}
+            onClick={() => setEmocionSeleccionada(emo)}
+            className={`${emo.color} p-8 rounded-3xl flex flex-col items-center gap-4 hover:scale-105 transition-all shadow-lg`}
           >
-            <span className="text-5xl mb-3 block">{emocion.emoji}</span>
-            <p className="font-bold text-slate-800">{emocion.nombre}</p>
-          </div>
+            <span className="text-6xl">{emo.emoji}</span>
+            <span className="text-xl font-bold text-slate-800">{emo.label}</span>
+          </button>
         ))}
       </div>
-    </main>
+
+      {/* Resultado de la selección */}
+      {emocionSeleccionada && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4">
+          <div className="bg-white p-10 rounded-3xl text-center shadow-2xl max-w-sm w-full">
+            <button onClick={() => setEmocionSeleccionada(null)} className="absolute top-4 right-4"><X /></button>
+            <div className="text-9xl mb-4">{emocionSeleccionada.emoji}</div>
+            <h3 className="text-3xl font-bold mb-2">¡Entendido!</h3>
+            <p className="text-xl text-slate-600">Veo que te sientes <strong>{emocionSeleccionada.label}</strong>.</p>
+          </div>
+        </div>
+      )}
+    </div>
   );
-}
+};
 
 export default Actividades;

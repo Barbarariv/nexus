@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Brain, Calendar, MessageCircle, Gamepad2, ArrowRight, Sun, Moon, Users, BookOpen } from 'lucide-react';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Inicio from "./Inicio"; // Verifica que el nombre del archivo sea exacto
-import Actividades from "./Actividades";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { Brain, Calendar, MessageCircle, Gamepad2, ArrowRight, Sun, Moon, Users, BookOpen } from 'lucide-react';
+import Inicio from "./Inicio"; 
+import Actividades from "./Actividades";
+
 function App() {
   const [isCalmMode, setIsCalmMode] = useState(false);
 
@@ -31,11 +31,15 @@ function App() {
     <span className="text-2xl font-black text-blue-900 tracking-tight">NEXUS</span>
   </div>
   
-  {/* Asegúrate de usar Link para que la navegación funcione */}
+  {/* Asegúrate de usar Link para que la navegación funcion */}
   <div className="hidden lg:flex gap-6 font-semibold text-slate-700">
     <Link to="/" className="hover:text-blue-600">Inicio</Link>
     <Link to="/actividades" className="hover:text-blue-600">Actividades</Link>
-    {/* Agrega aquí los demás enlaces con <Link to="/ruta"> */}
+    {/* Agrega aquí los demás enlace"> */}
+    <Routes>
+        <Route path="/" element={<Inicio />} />
+        <Route path="/actividades" element={<Actividades />} />
+      </Routes>
   </div>
 
   <button onClick={() => setIsCalmMode(!isCalmMode)} className="flex items-center gap-2 bg-amber-100 px-6 py-2 rounded-full font-bold text-amber-800">
