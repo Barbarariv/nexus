@@ -1,47 +1,29 @@
-import React, { useState } from 'react';
-import { Palette, Smile, Puzzle, Music, X } from 'lucide-react';
-
-const Actividades = () => {
-  const [emocionSeleccionada, setEmocionSeleccionada] = useState(null);
-
-  const emociones = [
-    { label: "Feliz", emoji: "😊", color: "bg-yellow-200" },
-    { label: "Triste", emoji: "😢", color: "bg-blue-200" },
-    { label: "Enojado", emoji: "😡", color: "bg-red-200" },
-    { label: "Cansado", emoji: "😴", color: "bg-purple-200" }
-  ];
-
+export default function Actividades() {
   return (
-    <div className="p-12">
-      <h2 className="text-4xl font-bold text-slate-800 mb-8">¿Cómo te sientes hoy?</h2>
-      
-      {/* Panel de Emociones */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-        {emociones.map((emo) => (
-          <button 
-            key={emo.label}
-            onClick={() => setEmocionSeleccionada(emo)}
-            className={`${emo.color} p-8 rounded-3xl flex flex-col items-center gap-4 hover:scale-105 transition-all shadow-lg`}
-          >
-            <span className="text-6xl">{emo.emoji}</span>
-            <span className="text-xl font-bold text-slate-800">{emo.label}</span>
+    <div className="bg-white rounded-[2rem] p-10 h-full shadow-lg border border-slate-100">
+      {/* Encabezado */}
+      <div className="flex justify-between items-center mb-8">
+        <button className="px-6 py-2 bg-slate-100 rounded-full font-bold text-slate-600">← Volver</button>
+        <h2 className="text-4xl font-black text-slate-800">¿Cómo se siente?</h2>
+        <div className="font-bold text-slate-500">2 / 6 ⭐</div>
+      </div>
+
+      {/* Área central */}
+      <div className="bg-orange-50 rounded-3xl h-80 flex items-center justify-center mb-8 border-2 border-orange-100">
+        <p className="text-slate-400">Aquí va la imagen o historia de la situación</p>
+      </div>
+
+      {/* Grid de opciones */}
+      <div className="grid grid-cols-4 gap-6">
+        {['Feliz', 'Triste', 'Calmado', 'Preocupado'].map((emo) => (
+          <button className="border-2 border-slate-100 p-8 rounded-3xl flex flex-col items-center hover:border-blue-300 transition-all">
+            <span className="text-6xl mb-4">😊</span>
+            <span className="font-bold text-lg text-slate-700">{emo}</span>
           </button>
         ))}
       </div>
-
-      {/* Resultado de la selección */}
-      {emocionSeleccionada && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4">
-          <div className="bg-white p-10 rounded-3xl text-center shadow-2xl max-w-sm w-full">
-            <button onClick={() => setEmocionSeleccionada(null)} className="absolute top-4 right-4"><X /></button>
-            <div className="text-9xl mb-4">{emocionSeleccionada.emoji}</div>
-            <h3 className="text-3xl font-bold mb-2">¡Entendido!</h3>
-            <p className="text-xl text-slate-600">Veo que te sientes <strong>{emocionSeleccionada.label}</strong>.</p>
-          </div>
-        </div>
-      )}
     </div>
   );
-};
+}
 
 export default Actividades;

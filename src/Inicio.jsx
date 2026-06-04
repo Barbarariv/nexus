@@ -7,9 +7,9 @@ export default function Inicio() {
 
   const cards = [
     { title: 'Actividades', icon: Brain, color: 'bg-purple-50', iconColor: 'text-purple-600', desc: 'Explora actividades sensoriales y creativas.', link: '/actividades' },
-    { title: 'Rutinas', icon: Calendar, color: 'bg-green-50', iconColor: 'text-green-600', desc: 'Organiza el día con rutinas visuales.', link: '/rutinas' },
-    { title: 'Comunicación', icon: MessageCircle, color: 'bg-orange-50', iconColor: 'text-orange-600', desc: 'Comunicación con pictogramas y apoyo visual.', link: '/comunicacion' },
-    { title: 'Juegos', icon: Gamepad2, color: 'bg-blue-50', iconColor: 'text-blue-600', desc: 'Juegos educativos para aprender jugando.', link: '/juegos' }
+    { title: 'Rutinas', icon: Calendar, color: 'bg-green-50', iconColor: 'text-green-600', desc: 'Organiza el día con rutinas visuales.', link: '#' },
+    { title: 'Comunicación', icon: MessageCircle, color: 'bg-orange-50', iconColor: 'text-orange-600', desc: 'Comunicación con pictogramas y apoyo visual.', link: '#' },
+    { title: 'Juegos', icon: Gamepad2, color: 'bg-blue-50', iconColor: 'text-blue-600', desc: 'Juegos educativos para aprender jugando.', link: '#' }
   ];
 
   return (
@@ -36,20 +36,37 @@ export default function Inicio() {
         {/* GRID DE TARJETAS */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {cards.map((card) => (
-            <Link 
-              key={card.title} 
-              to={card.link} 
-              className="block transition-transform hover:scale-105"
-            >
-              <div className={`${card.color} p-6 rounded-3xl h-full flex flex-col items-center text-center shadow-sm`}>
-                <card.icon size={48} className={`${card.iconColor} mb-4`} />
-                <h3 className="text-xl font-bold mb-2">{card.title}</h3>
-                <p className="text-sm text-slate-600">{card.desc}</p>
-                <ArrowRight size={20} className="mt-4 text-slate-400" />
-              </div>
-            </Link>
+           <Link to="/actividades"> {/* 2. ENVUELVE LA TARJETA EN UN LINK */}
+  <div className={`${card.color} p-6 rounded-3xl ...`}>
+    <card.icon size={40} className={`${card.iconColor} mb-4`} />
+    <h3 className="text-xl font-bold">{card.title}</h3>
+  </div>
+</Link>
           ))}
         </div>
+      </main>
+    </div>
+  );
+}
+function App() {
+  return (
+    <div className="flex h-screen bg-sky-50">
+      {/* SIDEBAR FIJO */}
+      <aside className="w-64 bg-white p-6 flex flex-col gap-8 shadow-md">
+        <div className="font-black text-2xl text-blue-900">NEXUS</div>
+        <nav className="flex flex-col gap-4">
+          <Link to="/" className="flex items-center gap-3 p-3 rounded-xl hover:bg-sky-100">🏠 Inicio</Link>
+          <Link to="/juegos" className="flex items-center gap-3 p-3 rounded-xl bg-blue-500 text-white shadow-lg">🎮 Juegos</Link>
+          <Link to="/actividades" className="flex items-center gap-3 p-3 rounded-xl hover:bg-sky-100">🎨 Actividades</Link>
+        </nav>
+      </aside>
+
+      {/* CONTENIDO PRINCIPAL */}
+      <main className="flex-1 p-10 overflow-y-auto">
+        <Routes>
+          <Route path="/" element={<Inicio />} />
+          <Route path="/actividades" element={<Actividades />} />
+        </Routes>
       </main>
     </div>
   );
