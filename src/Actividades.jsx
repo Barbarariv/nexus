@@ -1,28 +1,66 @@
+import React, { useState } from 'react';
+
 export default function Actividades() {
+  const [categoria, setCategoria] = useState('ninos'); // 'ninos' o 'adolescentes'
+
   return (
-    <div className="bg-white rounded-[2rem] p-10 h-full shadow-lg border border-slate-100">
-      {/* Encabezado */}
-      <div className="flex justify-between items-center mb-8">
-        <button className="px-6 py-2 bg-slate-100 rounded-full font-bold text-slate-600">← Volver</button>
-        <h2 className="text-4xl font-black text-slate-800">¿Cómo se siente?</h2>
-        <div className="font-bold text-slate-500">2 / 6 ⭐</div>
+    <div className="p-8 max-w-6xl mx-auto">
+      {/* Selector de Sección */}
+      <div className="flex justify-center gap-4 mb-12">
+        <button 
+          onClick={() => setCategoria('ninos')}
+          className={`px-8 py-3 rounded-full font-bold transition-all ${categoria === 'ninos' ? 'bg-blue-500 text-white shadow-lg' : 'bg-white text-slate-600'}`}
+        >
+          Niños y Niñas
+        </button>
+        <button 
+          onClick={() => setCategoria('adolescentes')}
+          className={`px-8 py-3 rounded-full font-bold transition-all ${categoria === 'adolescentes' ? 'bg-purple-500 text-white shadow-lg' : 'bg-white text-slate-600'}`}
+        >
+          Adolescentes
+        </button>
       </div>
 
-      {/* Área central */}
-      <div className="bg-orange-50 rounded-3xl h-80 flex items-center justify-center mb-8 border-2 border-orange-100">
-        <p className="text-slate-400">Aquí va la imagen o historia de la situación</p>
-      </div>
-
-      {/* Grid de opciones */}
-      <div className="grid grid-cols-4 gap-6">
-        {['Feliz', 'Triste', 'Calmado', 'Preocupado'].map((emo) => (
-          <button className="border-2 border-slate-100 p-8 rounded-3xl flex flex-col items-center hover:border-blue-300 transition-all">
-            <span className="text-6xl mb-4">😊</span>
-            <span className="font-bold text-lg text-slate-700">{emo}</span>
-          </button>
-        ))}
+      {/* Contenido Dinámico */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {categoria === 'ninos' ? (
+          <SeccionNinos />
+        ) : (
+          <SeccionAdolescentes />
+        )}
       </div>
     </div>
+  );
+}
+
+// Componentes de contenido
+function SeccionNinos() {
+  return (
+    <>
+      <div className="bg-yellow-100 p-10 rounded-[2rem] text-center">
+        <h3 className="text-2xl font-black mb-4">Juegos Sensoriales</h3>
+        <p>Actividades diseñadas para explorar texturas y colores.</p>
+      </div>
+      <div className="bg-blue-100 p-10 rounded-[2rem] text-center">
+        <h3 className="text-2xl font-black mb-4">Emociones</h3>
+        <p>Aprende a reconocer cómo te sientes hoy.</p>
+      </div>
+    </>
+  );
+}
+
+function SeccionAdolescentes() {
+  return (
+    <>
+      <div className="bg-purple-100 p-10 rounded-[2rem] text-center">
+        <h3 className="text-2xl font-black mb-4">Gestión de Rutinas</h3>
+        <p>Herramientas para organizar el día a día y objetivos.</p>
+      </div>
+      <div className="bg-green-100 p-10 rounded-[2rem] text-center">
+        <h3 className="text-2xl font-black mb-4">Comunicación Social</h3>
+        <p>Espacio para reflexión y habilidades sociales.</p>
+      </div>
+    </>
   );
 }
 
