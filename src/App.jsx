@@ -44,7 +44,7 @@ function App() {
   <span className="text-blue-600">Aprendamos juntos, </span>
   <span className="text-orange-500">crezcamos juntos</span>
 </h1>
-            <p className="text-xl text-slate-600 mb-8">Actividades, rutinas y herramientas para niños neurodivergentes y sus familias.</p>
+            <p className="text-xl text-slate-600 mb-8">En Nexus encontrarás actividades, rutinas, herramientas y recursos diseñados para apoyar a niños niñas y adolescentes neurodivergentes, sus familias y educadores.</p>
             <div className="flex gap-4">
               <button className="bg-blue-600 text-white px-8 py-3 rounded-full font-bold shadow-lg">Comenzar</button>
               <button className="bg-white text-blue-600 px-8 py-3 rounded-full font-bold border border-blue-200">Para familias</button>
