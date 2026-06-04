@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 export default function Actividades() {
-  const [categoria, setCategoria] = useState('ninos'); // 'ninos' o 'adolescentes'
+  const [categoria, setCategoria] = useState('ninos'); 
 
   return (
     <div className="p-8 max-w-6xl mx-auto">
@@ -33,7 +33,7 @@ export default function Actividades() {
   );
 }
 
-// Componentes de contenido
+// Componentes internos (no necesitan export)
 function SeccionNinos() {
   return (
     <>
@@ -63,5 +63,3 @@ function SeccionAdolescentes() {
     </>
   );
 }
-
-export default Actividades;
