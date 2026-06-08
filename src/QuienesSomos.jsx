@@ -7,9 +7,9 @@ export default function QuienesSomos() {
       <Link to="/" className="text-blue-600 font-bold hover:underline mb-8 block">← Volver al inicio</Link>
       
       {/* Título con estilo */}
-      <h1 className="text-5xl font-black text-slate-900 mb-8 border-b-4 border-blue-600 inline-block">
-        ¿Quiénes somos?
-      </h1>
+      <h1 className="text-5xl font-black mb-8 border-b-4 border-blue-600 inline-block pb-2 bg-gradient-to-r from-blue-600 via-purple-600 to-orange-500 bg-clip-text text-transparent">
+  ¿Quiénes somos?
+</h1>
 
       {/* Introducción principal */}
       <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 mb-8">
