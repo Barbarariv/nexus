@@ -38,11 +38,6 @@ export default function QuienesSomos() {
           "La verdadera inclusión ocurre cuando apoyamos integralmente. Trabajamos para construir una sociedad más accesible, empática y justa, 
           donde cada persona pueda participar, crecer y desarrollarse con dignidad."
         </p>
-        <div className="mt-8 flex justify-center gap-4">
-          <span className="px-6 py-2 bg-sky-100 text-blue-800 rounded-full font-bold">Autonomía</span>
-          <span className="px-6 py-2 bg-sky-100 text-blue-800 rounded-full font-bold">Bienestar</span>
-          <span className="px-6 py-2 bg-sky-100 text-blue-800 rounded-full font-bold">Equidad</span>
-        </div>
       </div>
     </div>
   );
