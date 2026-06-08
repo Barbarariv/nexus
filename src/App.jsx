@@ -152,7 +152,7 @@ function App() {
         <Route path="/comunicacion"    element={<EnConstruccion titulo="Comunicación" />} />
         <Route path="/juegos"          element={<EnConstruccion titulo="Juegos" />} />
         <Route path="/recursos"        element={<EnConstruccion titulo="Recursos" />} />
-        <Route path="/sobre-nosotros"  element={<EnConstruccion titulo="Sobre Nosotros" />} />
+        <Route path="/sobre-nosotros" element={<QuienesSomos />} />
         <Route path="*"                element={<EnConstruccion titulo="Página no encontrada" />} />
       </Routes>
     </div>
