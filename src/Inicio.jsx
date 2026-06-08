@@ -44,19 +44,20 @@ export default function Inicio() {
         <h3 className="text-xl font-bold text-blue-900 mb-2">Consejo del día</h3>
         <p className="text-blue-800 italic">"Pequeños pasos constantes llevan a grandes cambios positivos."</p>
       </section>
+
+      {/* Botón de WhatsApp - AHORA DENTRO DEL RETURN */}
+      <div className="fixed bottom-8 right-8 z-50">
+        <a 
+          href="https://wa.me/56988094341" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-all flex items-center justify-center text-2xl w-14 h-14"
+          aria-label="Chat en WhatsApp"
+        >
+          💬
+        </a>
+      </div>
+      
     </div>
   );
-  {/* Botón de WhatsApp */}
-<div className="fixed bottom-8 right-8 z-50">
-  <a 
-    href="https://wa.me/56988094341" 
-    target="_blank" 
-    rel="noopener noreferrer"
-    className="bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-all flex items-center justify-center text-2xl"
-    aria-label="Chat en WhatsApp"
-  >
-    {/* Puedes usar un SVG aquí o un emoji */}
-    💬
-  </a>
-</div>
 }
