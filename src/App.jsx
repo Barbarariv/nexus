@@ -24,7 +24,7 @@ function Home() {
             <span className="text-orange-500">crezcamos juntos</span>
           </h1>
           <p className="text-xl text-slate-600 mb-8">
-            Actividades, rutinas y herramientas para niños neurodivergentes y sus familias.
+            En Nexus encontrarás actividades, rutinas, herramientas y recursos diseñados para apoyar a niños niñas y adolescentes neurodivergentes, sus familias y educadores.
           </p>
           <div className="flex gap-4">
             <Link
