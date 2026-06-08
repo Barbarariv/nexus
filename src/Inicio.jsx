@@ -46,4 +46,17 @@ export default function Inicio() {
       </section>
     </div>
   );
+  {/* Botón de WhatsApp */}
+<div className="fixed bottom-8 right-8 z-50">
+  <a 
+    href="https://wa.me/56988094341" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-all flex items-center justify-center text-2xl"
+    aria-label="Chat en WhatsApp"
+  >
+    {/* Puedes usar un SVG aquí o un emoji */}
+    💬
+  </a>
+</div>
 }
