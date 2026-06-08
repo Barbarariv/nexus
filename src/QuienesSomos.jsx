@@ -3,40 +3,44 @@ import { Link } from 'react-router-dom';
 
 export default function QuienesSomos() {
   return (
-    <div className="p-8 max-w-4xl mx-auto bg-slate-50 min-h-screen">
-      <Link to="/" className="text-blue-600 font-bold mb-8 block hover:underline">← Volver al inicio</Link>
+    <div className="p-8 max-w-4xl mx-auto text-left">
+      <Link to="/" className="text-blue-600 font-bold hover:underline mb-8 block">← Volver al inicio</Link>
       
-      {/* Encabezado Principal */}
-      <div className="text-center mb-16">
-        <h1 className="text-5xl font-black text-blue-900 mb-4">¿Quiénes somos?</h1>
-        <p className="text-2xl text-blue-600 font-medium">Fundación Nexus Inclusiva</p>
+      {/* Título con estilo */}
+      <h1 className="text-5xl font-black text-slate-900 mb-8 border-b-4 border-blue-600 inline-block">
+        ¿Quiénes somos?
+      </h1>
+
+      {/* Introducción principal */}
+      <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 mb-8">
+        <p className="text-xl text-slate-700 leading-relaxed">
+          <strong>Fundación Nexus Inclusiva</strong> es una organización sin fines de lucro que trabaja para mejorar la calidad de vida de niños, niñas y adolescentes neurodivergentes y en situación de discapacidad, así como de las familias que los acompañan en su proceso de desarrollo.
+        </p>
       </div>
 
-      {/* Misión y Visión */}
-      <div className="grid md:grid-cols-2 gap-8 mb-12">
-        <div className="bg-white p-8 rounded-[2rem] shadow-sm border border-blue-100">
-          <h2 className="text-2xl font-bold text-blue-900 mb-4">Nuestra Esencia</h2>
-          <p className="text-slate-700 leading-relaxed">
-            Somos una organización sin fines de lucro dedicada a mejorar la calidad de vida de niños, niñas y adolescentes neurodivergentes y en situación de discapacidad. 
-            Creemos firmemente en el acceso a apoyos oportunos, eliminando las barreras económicas para que todos puedan desarrollar su máximo potencial.
-          </p>
-        </div>
-
-        <div className="bg-blue-600 p-8 rounded-[2rem] text-white">
-          <h2 className="text-2xl font-bold mb-4">Más que Terapias</h2>
+      {/* Bloque con nuestra filosofía */}
+      <div className="grid md:grid-cols-2 gap-8 mb-8">
+        <div className="bg-blue-600 p-8 rounded-3xl text-white">
+          <h3 className="font-bold text-xl mb-4">Nuestra Convicción</h3>
           <p className="leading-relaxed">
-            Nuestro equipo transdisciplinario (psicología, fonoaudiología, terapia ocupacional, kinesiología y trabajo social) no solo acompaña al niño, 
-            sino que abraza a toda la familia, fortaleciendo el bienestar de quienes ejercen labores de cuidado.
+            Nacemos convencidos de que todas las personas merecen acceso a apoyos oportunos y espacios inclusivos, sin que las limitaciones económicas sean una barrera.
+          </p>
+        </div>
+        <div className="bg-slate-900 p-8 rounded-3xl text-white">
+          <h3 className="font-bold text-xl mb-4">Nuestro Propósito</h3>
+          <p className="leading-relaxed">
+            Acercamos servicios especializados de salud y rehabilitación a través de un equipo transdisciplinario: psicología, fonoaudiología, terapia ocupacional, kinesiología y trabajo social.
           </p>
         </div>
       </div>
 
-      {/* Compromiso Social */}
-      <div className="bg-white p-10 rounded-[2rem] shadow-lg border border-slate-100 text-center">
-        <h3 className="text-3xl font-black text-slate-900 mb-6">Nuestro Propósito</h3>
-        <p className="text-lg text-slate-700 leading-relaxed max-w-2xl mx-auto italic">
-          "La verdadera inclusión ocurre cuando apoyamos integralmente. Trabajamos para construir una sociedad más accesible, empática y justa, 
-          donde cada persona pueda participar, crecer y desarrollarse con dignidad."
+      {/* Misión familias y cierre */}
+      <div className="space-y-6 text-slate-700 leading-relaxed bg-slate-50 p-8 rounded-3xl border border-slate-200">
+        <p>
+          Sin embargo, nuestra misión va más allá de las terapias. Comprendemos que detrás de cada niño, niña o adolescente existe una familia que enfrenta desafíos cotidianos. Por ello, promovemos iniciativas que fortalezcan la <strong>autonomía, el bienestar y las oportunidades de desarrollo de las personas cuidadoras</strong>.
+        </p>
+        <p className="italic text-lg font-semibold border-l-4 border-blue-600 pl-4 py-2">
+          "En Fundación Nexus Inclusiva creemos que la verdadera inclusión ocurre cuando apoyamos integralmente. Trabajamos para construir una sociedad más accesible, empática y justa."
         </p>
       </div>
     </div>
