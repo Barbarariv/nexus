@@ -3,7 +3,7 @@ import { Brain, Calendar, MessageCircle, Gamepad2, ArrowRight, Sun, Moon } from 
 import { Routes, Route, Link, NavLink } from "react-router-dom";
 import Inicio from "./Inicio";
 import Actividades from "./Actividades";
-import QuienesSomos from "./QuienesSomos"; // Importa tu nuevo componente aquí
+import QuienesSomos from "./QuienesSomos"; 
 
 // ──────────────────────────────────────────────
 // PÁGINA PRINCIPAL
