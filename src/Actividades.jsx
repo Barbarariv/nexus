@@ -177,26 +177,16 @@ const contenidoActividades = {
   ],
 };
 
-// ── COMPONENTE TEMPORIZADOR ───────────────────────────────────────────────────
+// ── COMPONENTE CRONÓMETRO ─────────────────────────────────────────────────────
 function Temporizador({ duracion, onCompletar }) {
-  const [segundos, setSegundos] = useState(duracion);
+  const [segundos, setSegundos] = useState(0);
   const [corriendo, setCorriendo] = useState(false);
-  const [completado, setCompletado] = useState(false);
   const intervalRef = useRef(null);
 
   useEffect(() => {
-    if (corriendo && segundos > 0) {
+    if (corriendo) {
       intervalRef.current = setInterval(() => {
-        setSegundos(s => {
-          if (s <= 1) {
-            clearInterval(intervalRef.current);
-            setCorriendo(false);
-            setCompletado(true);
-            onCompletar();
-            return 0;
-          }
-          return s - 1;
-        });
+        setSegundos(s => s + 1);
       }, 1000);
     }
     return () => clearInterval(intervalRef.current);
@@ -208,18 +198,28 @@ function Temporizador({ duracion, onCompletar }) {
     return `${m}:${seg}`;
   };
 
-  const porcentaje = ((duracion - segundos) / duracion) * 100;
+  // El arco del círculo muestra progreso respecto a la duración sugerida (sin límite)
+  const porcentaje = Math.min((segundos / duracion) * 100, 100);
+  const superado = segundos >= duracion;
 
   const reiniciar = () => {
     clearInterval(intervalRef.current);
-    setSegundos(duracion);
+    setSegundos(0);
     setCorriendo(false);
-    setCompletado(false);
+  };
+
+  const detener = () => {
+    clearInterval(intervalRef.current);
+    setCorriendo(false);
+    onCompletar();
   };
 
   return (
     <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm text-center">
-      <p className="text-sm font-bold text-slate-500 uppercase tracking-widest mb-3">⏱ Temporizador</p>
+      <p className="text-sm font-bold text-slate-500 uppercase tracking-widest mb-1">⏱ Cronómetro</p>
+      <p className="text-xs text-slate-400 mb-3">
+        Meta sugerida: {Math.floor(duracion / 60)} min
+      </p>
 
       {/* Círculo de progreso */}
       <div className="relative w-32 h-32 mx-auto mb-4">
@@ -227,7 +227,7 @@ function Temporizador({ duracion, onCompletar }) {
           <circle cx="18" cy="18" r="15.9" fill="none" stroke="#e2e8f0" strokeWidth="2.5" />
           <circle
             cx="18" cy="18" r="15.9" fill="none"
-            stroke={completado ? "#22c55e" : "#3b82f6"}
+            stroke={superado ? "#22c55e" : "#3b82f6"}
             strokeWidth="2.5"
             strokeDasharray="100"
             strokeDashoffset={100 - porcentaje}
@@ -235,29 +235,36 @@ function Temporizador({ duracion, onCompletar }) {
             style={{ transition: 'stroke-dashoffset 1s linear' }}
           />
         </svg>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <span className={`text-2xl font-black ${completado ? 'text-green-600' : 'text-slate-800'}`}>
-            {completado ? '✓' : formatear(segundos)}
+        <div className="absolute inset-0 flex items-center justify-center flex-col">
+          <span className={`text-2xl font-black ${superado ? 'text-green-600' : 'text-slate-800'}`}>
+            {formatear(segundos)}
           </span>
+          {superado && <span className="text-green-500 text-xs font-bold">¡Meta!</span>}
         </div>
       </div>
 
-      {completado ? (
-        <div>
-          <p className="text-green-600 font-bold mb-3">¡Tiempo completado! 🎉</p>
-          <button onClick={reiniciar} className="text-sm text-slate-500 underline">Reiniciar</button>
-        </div>
-      ) : (
-        <div className="flex gap-3 justify-center">
+      <div className="flex gap-3 justify-center">
+        <button
+          onClick={() => setCorriendo(!corriendo)}
+          className={`px-6 py-2 rounded-full font-bold text-white text-sm transition-all ${corriendo ? 'bg-amber-500 hover:bg-amber-600' : 'bg-blue-500 hover:bg-blue-600'}`}
+        >
+          {corriendo ? '⏸ Pausar' : segundos === 0 ? '▶ Iniciar' : '▶ Continuar'}
+        </button>
+        <button
+          onClick={reiniciar}
+          className="px-4 py-2 rounded-full font-bold text-slate-600 bg-slate-100 hover:bg-slate-200 text-sm"
+        >
+          ↺
+        </button>
+        {segundos > 0 && !corriendo && (
           <button
-            onClick={() => setCorriendo(!corriendo)}
-            className={`px-6 py-2 rounded-full font-bold text-white text-sm transition-all ${corriendo ? 'bg-amber-500 hover:bg-amber-600' : 'bg-blue-500 hover:bg-blue-600'}`}
+            onClick={detener}
+            className="px-4 py-2 rounded-full font-bold text-white bg-green-500 hover:bg-green-600 text-sm"
           >
-            {corriendo ? '⏸ Pausar' : '▶ Iniciar'}
+            ✓ Listo
           </button>
-          <button onClick={reiniciar} className="px-4 py-2 rounded-full font-bold text-slate-600 bg-slate-100 hover:bg-slate-200 text-sm">↺</button>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }
