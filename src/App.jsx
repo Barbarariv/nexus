@@ -3,7 +3,7 @@ import { Brain, Calendar, MessageCircle, Gamepad2, ArrowRight, Sun, Moon } from 
 import { Routes, Route, Link, NavLink } from "react-router-dom";
 import Inicio from "./Inicio";
 import Actividades from "./Actividades";
-import QuienesSomos from "./QuienesSomos"; 
+import QuienesSomos from './QuienesSomos';
 
 // ──────────────────────────────────────────────
 // PÁGINA PRINCIPAL
@@ -119,7 +119,7 @@ function App() {
         <Route path="/comunicacion" element={<EnConstruccion titulo="Comunicación" />} />
         <Route path="/juegos" element={<EnConstruccion titulo="Juegos" />} />
         <Route path="/recursos" element={<EnConstruccion titulo="Recursos" />} />
-        <Route path="/sobre-nosotros" element={<QuienesSomos />} /> 
+        <Route path="/sobre-nosotros" element={<QuienesSomos />} />
         <Route path="*" element={<EnConstruccion titulo="Página no encontrada" />} />
       </Routes>
     </div>
