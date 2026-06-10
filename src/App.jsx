@@ -114,9 +114,9 @@ function Home() {
   </div>
 </div>
 
-{/* Niño con corazón TEA */}
+{/* Niño con corazón */}
 <div className="ml-4 hidden lg:block">
-  <img src="/corazon_tea.jpg" alt="Niño con corazón TEA" className="w-48 h-auto object-contain drop-shadow-lg" />
+  <img src="/corazon.jpg" alt="Niño con corazón" className="w-48 h-auto object-contain drop-shadow-lg" />
 </div>
 </div>
         </div>
