@@ -83,8 +83,7 @@ function Home() {
               <span className="text-orange-500">crecemos juntos</span>
             </h1>
             <p className="text-slate-500 text-lg mb-8 leading-relaxed">
-              Actividades, rutinas y herramientas para<br className="hidden sm:block" />
-              niños con TEA y sus familias.
+              En Nexus encontrarás actividades, rutinas, herramientas y recursos diseñados para apoyar a niños niñas y adolescentes neurodivergentes, sus familias y educadores.
             </p>
             <div className="flex gap-4 flex-wrap">
               <Link to="/actividades"
