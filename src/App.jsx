@@ -106,18 +106,19 @@ function Home() {
             <div className="absolute right-0 top-0 text-2xl opacity-20">⭐</div>
 
             <div className="bg-white rounded-3xl shadow-xl p-8 flex flex-col items-center border border-sky-100" style={{minWidth: 260}}>
-              {/* Logo SVG simplificado / imagen */}
-              <img src="/logo.png" alt="NEXUS" className="w-28 h-28 object-contain mb-3"
-                onError={e => { e.target.style.display='none'; }} />
-              <div className="text-4xl font-black text-blue-800 tracking-widest">NEXUS</div>
-              <div className="text-xs text-slate-400 font-semibold tracking-widest text-center mt-1">
-                FUNDACIÓN DE APOYO INTEGRAL INCLUSIVO
-              </div>
-            </div>
+  <img src="/logo.png" alt="NEXUS" className="w-28 h-28 object-contain mb-3"
+    onError={e => { e.target.style.display='none'; }} />
+  <div className="text-4xl font-black text-blue-800 tracking-widest">NEXUS</div>
+  <div className="text-xs text-slate-400 font-semibold tracking-widest text-center mt-1">
+    FUNDACIÓN DE APOYO INTEGRAL INCLUSIVO
+  </div>
+</div>
 
-            {/* Niño ilustración (emoji fallback) */}
-            <div className="ml-4 text-8xl select-none hidden lg:block">🧒</div>
-          </div>
+{/* Niño con corazón TEA */}
+<div className="ml-4 hidden lg:block">
+  <img src="/corazon_tea.jpg" alt="Niño con corazón TEA" className="w-48 h-auto object-contain drop-shadow-lg" />
+</div>
+</div>
         </div>
       </section>
 
