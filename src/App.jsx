@@ -64,7 +64,7 @@ function Home() {
   ];
 
   return (
-    <div className="bg-sky-50 min-h-screen">
+    <div className="bg-sky-200 min-h-screen">
 
       {/* ── HERO ─────────────────────────────────────────────────────── */}
       <section className="max-w-7xl mx-auto px-6 lg:px-12 pt-12 pb-6">
@@ -92,7 +92,7 @@ function Home() {
                 <span>❤️</span> Comenzar
               </Link>
               <Link to="/recursos"
-                className="flex items-center gap-2 bg-white hover:bg-sky-50 text-slate-700 px-7 py-3 rounded-full font-bold border border-slate-200 shadow-sm transition-all">
+                className="flex items-center gap-2 bg-white hover:bg-sky-200 text-slate-700 px-7 py-3 rounded-full font-bold border border-slate-200 shadow-sm transition-all">
                 <span>👨‍👩‍👧</span> Para familias
               </Link>
             </div>
@@ -220,7 +220,7 @@ function App() {
   ];
 
   return (
-    <div className={`min-h-screen font-sans ${isCalmMode ? 'bg-slate-900 text-white' : 'bg-sky-50 text-slate-950'}`}>
+    <div className={`min-h-screen font-sans ${isCalmMode ? 'bg-slate-900 text-white' : 'bg-sky-200 text-slate-950'}`}>
 
       {/* ── NAVBAR ─────────────────────────────────────────────────── */}
       <nav className="flex justify-between items-center px-6 lg:px-12 py-3 bg-white shadow-sm sticky top-0 z-50">
