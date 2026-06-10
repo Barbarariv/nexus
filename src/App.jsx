@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Routes, Route, Link, NavLink } from "react-router-dom";
 import Actividades from "./Actividades";
+import QuienesSomos from './QuienesSomos';
 
 // ── PLACEHOLDERS ──────────────────────────────────────────────────────────────
 function EnConstruccion({ titulo }) {
@@ -79,8 +80,8 @@ function Home() {
               <span className="text-blue-300 text-sm">✦</span>
             </div>
             <h1 className="text-5xl font-black leading-tight mb-4">
-              <span className="text-slate-800">Aprendemos juntos,</span><br />
-              <span className="text-orange-500">crecemos juntos</span>
+              <span className="text-slate-800">no estan solos,</span><br />
+              <span className="text-orange-500">los acompañamos en cada paso</span>
             </h1>
             <p className="text-slate-500 text-lg mb-8 leading-relaxed">
               En Nexus encontrarás actividades, rutinas, herramientas y recursos diseñados para apoyar a niños niñas y adolescentes neurodivergentes, sus familias y educadores.
@@ -264,7 +265,7 @@ function App() {
         <Route path="/comunicacion"   element={<EnConstruccion titulo="Comunicación" />} />
         <Route path="/juegos"         element={<EnConstruccion titulo="Juegos" />} />
         <Route path="/recursos"       element={<EnConstruccion titulo="Recursos" />} />
-        <Route path="/sobre-nosotros" element={<EnConstruccion titulo="Sobre Nosotros" />} />
+        <Route path="/sobre-nosotros" element={<QuienesSomos />} />
         <Route path="*"               element={<EnConstruccion titulo="Página no encontrada" />} />
       </Routes>
 
