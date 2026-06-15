@@ -1,270 +1,199 @@
-import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Heart, Brain, HandHeart, Scale, Sprout, ArrowLeft } from 'lucide-react';
 
-// Hook para animación al entrar en viewport
-function useInView() {
-  const ref = useRef(null);
-  const [visible, setVisible] = useState(false);
-  useEffect(() => {
-    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVisible(true); }, { threshold: 0.15 });
-    if (ref.current) obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, []);
-  return [ref, visible];
-}
+import carolinaVidal from './assets/equipo/carolina-vidal.png';
+import matiasHerrera from './assets/equipo/matias-herrera.png';
+import patriciaMunoz from './assets/equipo/patricia-munoz.png';
+import robertoSalinas from './assets/equipo/roberto-salinas.png';
 
-function FadeIn({ children, delay = 0, className = '' }) {
-  const [ref, visible] = useInView();
-  return (
-    <div
-      ref={ref}
-      className={className}
-      style={{
-        opacity: visible ? 1 : 0,
-        transform: visible ? 'translateY(0)' : 'translateY(32px)',
-        transition: `opacity 0.7s ease ${delay}s, transform 0.7s ease ${delay}s`,
-      }}
-    >
-      {children}
-    </div>
-  );
-}
-
-// Pilares institucionales
-const pilares = [
+// --- Datos de los valores institucionales ---
+const valores = [
   {
-    icono: '🧠',
     titulo: 'Neurodiversidad',
-    texto: 'Abrazamos las diferencias cognitivas como parte natural de la humanidad, no como limitaciones.',
-    color: 'from-violet-500 to-purple-600',
-    bg: 'bg-violet-50',
-    border: 'border-violet-200',
+    icon: Brain,
+    color: 'bg-purple-50',
+    iconBg: 'bg-purple-500',
+    texto: 'Abrazamos las diferencias cognitivas como parte natural de la humanidad, sin verlas como limitaciones.',
   },
   {
-    icono: '🤝',
     titulo: 'Acompañamiento',
+    icon: HandHeart,
+    color: 'bg-blue-50',
+    iconBg: 'bg-blue-500',
     texto: 'Caminamos junto a niños, familias y cuidadores en cada etapa de su desarrollo.',
-    color: 'from-sky-500 to-blue-600',
-    bg: 'bg-sky-50',
-    border: 'border-sky-200',
   },
   {
-    icono: '⚖️',
     titulo: 'Equidad',
+    icon: Scale,
+    color: 'bg-green-50',
+    iconBg: 'bg-emerald-500',
     texto: 'Las limitaciones económicas nunca deben ser una barrera para acceder a apoyos oportunos.',
-    color: 'from-emerald-500 to-teal-600',
-    bg: 'bg-emerald-50',
-    border: 'border-emerald-200',
   },
   {
-    icono: '🌱',
     titulo: 'Inclusión real',
+    icon: Sprout,
+    color: 'bg-amber-50',
+    iconBg: 'bg-amber-500',
     texto: 'Construimos entornos más accesibles, empáticos y justos para que cada persona pueda crecer con dignidad.',
-    color: 'from-amber-500 to-orange-600',
-    bg: 'bg-amber-50',
-    border: 'border-amber-200',
   },
 ];
 
-// Áreas del equipo
-const areas = [
-  { nombre: 'Psicología', icono: '🧩' },
-  { nombre: 'Fonoaudiología', icono: '🗣️' },
-  { nombre: 'Terapia Ocupacional', icono: '🖐️' },
-  { nombre: 'Kinesiología', icono: '🏃' },
-  { nombre: 'Trabajo Social', icono: '🌐' },
+// --- Equipo: cada integrante se asocia a un valor/acento de color de la fundación ---
+const equipo = [
+  {
+    nombre: 'Matías Herrera',
+    rol: 'Director Ejecutivo',
+    foto: matiasHerrera,
+    acento: 'border-blue-400',
+    chip: 'bg-blue-100 text-blue-700',
+    frase: 'Conectar cada apoyo con la familia que lo necesita.',
+  },
+  {
+    nombre: 'Roberto Salinas',
+    rol: 'Presidente del Directorio',
+    foto: robertoSalinas,
+    acento: 'border-amber-400',
+    chip: 'bg-amber-100 text-amber-700',
+    frase: 'Construir alianzas que sostengan a NEXO en el tiempo.',
+  },
+  {
+    nombre: 'Carolina Vidal',
+    rol: 'Coordinadora de Terapias',
+    foto: carolinaVidal,
+    acento: 'border-emerald-400',
+    chip: 'bg-emerald-100 text-emerald-700',
+    frase: 'Diseñar actividades que respeten el ritmo de cada niño o niña.',
+  },
+  {
+    nombre: 'Patricia Muñoz',
+    rol: 'Encargada de Comunicaciones',
+    foto: patriciaMunoz,
+    acento: 'border-purple-400',
+    chip: 'bg-purple-100 text-purple-700',
+    frase: 'Contar nuestras historias para que más familias se acerquen.',
+  },
 ];
 
-export default function QuienesSomos() {
+export default function SobreNosotros() {
   return (
-    <div className="min-h-screen bg-white">
-      {/* ── HERO ─────────────────────────────────────────────────────── */}
-      <div className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
-        {/* Círculos decorativos */}
-        <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-violet-600/20 blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-16 -left-16 w-80 h-80 rounded-full bg-sky-500/15 blur-3xl pointer-events-none" />
+    <div className="font-sans">
 
-        <div className="relative max-w-5xl mx-auto px-6 py-20">
-          <Link to="/" className="inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors font-semibold mb-12 text-sm">
-            ← Volver al inicio
+      {/* ---------- HERO ---------- */}
+      <section className="relative overflow-hidden bg-slate-950 text-white px-6 md:px-12 py-20">
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo-950 via-slate-950 to-blue-950 opacity-90" />
+        <div className="relative max-w-4xl mx-auto text-center">
+          <Link to="/" className="inline-flex items-center gap-2 text-slate-300 hover:text-white mb-10 text-sm font-semibold">
+            <ArrowLeft size={16} /> Volver al inicio
           </Link>
 
-          <div className="flex items-start gap-4 mb-6">
-            <span className="text-5xl">💜</span>
-            <div>
-              <p className="text-violet-400 font-bold tracking-widest text-xs uppercase mb-2">Organización sin fines de lucro</p>
-              <h1 className="text-5xl md:text-6xl font-black leading-tight">
-                Fundación<br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-sky-400">
-                  Nexus Inclusiva
-                </span>
-              </h1>
-            </div>
+          <div className="flex justify-center mb-6">
+            <Heart className="text-purple-400" size={36} />
           </div>
 
-          <p className="text-slate-300 text-xl max-w-2xl leading-relaxed mt-6">
+          <p className="uppercase tracking-[0.2em] text-purple-300 text-xs font-bold mb-4">
+            Organización sin fines de lucro
+          </p>
+          <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight">
+            Fundación <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">Nexus Inclusiva</span>
+          </h1>
+          <p className="text-slate-300 text-lg max-w-2xl mx-auto">
             Trabajamos para mejorar la calidad de vida de niños, niñas y adolescentes
             neurodivergentes y en situación de discapacidad, y de las familias que los acompañan.
           </p>
 
-          {/* Stat chips */}
-          <div className="flex flex-wrap gap-3 mt-10">
+          <div className="flex flex-wrap justify-center gap-3 mt-8">
             {['Salud especializada', 'Rehabilitación', 'Acompañamiento integral', 'Equipo transdisciplinario'].map(tag => (
-              <span key={tag} className="bg-white/10 backdrop-blur border border-white/20 text-white text-sm font-semibold px-4 py-2 rounded-full">
+              <span key={tag} className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-200">
                 {tag}
               </span>
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* ── NUESTRA HISTORIA ─────────────────────────────────────────── */}
-      <div className="max-w-5xl mx-auto px-6 py-20">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
-          <FadeIn>
-            <div>
-              <span className="text-violet-500 font-bold text-xs uppercase tracking-widest">¿Por qué existimos?</span>
-              <h2 className="text-4xl font-black text-slate-900 mt-2 mb-6 leading-tight">
-                Nacemos de una convicción
-              </h2>
-              <p className="text-slate-600 leading-relaxed text-lg mb-5">
-                Todas las personas merecen acceso a apoyos oportunos, espacios inclusivos y oportunidades
-                reales para desarrollar su máximo potencial.
-              </p>
-              <p className="text-slate-600 leading-relaxed text-lg">
-                Sin que las <strong className="text-slate-800">limitaciones económicas</strong> sean una barrera para ello.
-              </p>
-            </div>
-          </FadeIn>
+      {/* ---------- VALORES ---------- */}
+      <section className="px-6 md:px-12 py-16 max-w-6xl mx-auto">
+        <h2 className="text-3xl font-bold text-center mb-2 text-slate-900">Lo que nos guía</h2>
+        <p className="text-center text-slate-500 mb-12">Cuatro ideas que sostienen todo lo que hacemos en NEXO.</p>
 
-          <FadeIn delay={0.2}>
-            {/* Bloque visual de propósito */}
-            <div className="bg-gradient-to-br from-violet-600 to-sky-600 rounded-3xl p-8 text-white shadow-2xl shadow-violet-200">
-              <div className="text-4xl mb-4">🎯</div>
-              <h3 className="text-2xl font-black mb-3">Nuestro propósito</h3>
-              <p className="text-white/90 leading-relaxed">
-                Acercar servicios especializados de salud, rehabilitación y acompañamiento integral
-                a quienes más lo necesitan, a través de un equipo transdisciplinario comprometido.
-              </p>
-            </div>
-          </FadeIn>
-        </div>
-      </div>
-
-      {/* ── PILARES ──────────────────────────────────────────────────── */}
-      <div className="bg-slate-50 py-20">
-        <div className="max-w-5xl mx-auto px-6">
-          <FadeIn>
-            <div className="text-center mb-14">
-              <span className="text-violet-500 font-bold text-xs uppercase tracking-widest">Lo que nos mueve</span>
-              <h2 className="text-4xl font-black text-slate-900 mt-2">Nuestros pilares</h2>
-            </div>
-          </FadeIn>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {pilares.map((p, i) => (
-              <FadeIn key={p.titulo} delay={i * 0.1}>
-                <div className={`${p.bg} ${p.border} border-2 rounded-3xl p-6 h-full hover:shadow-lg transition-shadow`}>
-                  <div className={`w-12 h-12 bg-gradient-to-br ${p.color} rounded-2xl flex items-center justify-center text-2xl mb-4 shadow-md`}>
-                    {p.icono}
-                  </div>
-                  <h3 className="font-black text-slate-800 text-lg mb-2">{p.titulo}</h3>
-                  <p className="text-slate-600 text-sm leading-relaxed">{p.texto}</p>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* ── MÁS ALLÁ DE LAS TERAPIAS ─────────────────────────────────── */}
-      <div className="max-w-5xl mx-auto px-6 py-20">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
-          <FadeIn delay={0.1}>
-            {/* Bloque familia */}
-            <div className="relative">
-              <div className="bg-amber-50 border-2 border-amber-200 rounded-3xl p-8">
-                <div className="text-4xl mb-4">👨‍👩‍👧</div>
-                <h3 className="text-2xl font-black text-slate-800 mb-3">Las familias también importan</h3>
-                <p className="text-slate-600 leading-relaxed">
-                  Detrás de cada niño, niña o adolescente existe una familia que enfrenta desafíos cotidianos.
-                  Especialmente quienes ejercen <strong className="text-slate-800">labores de cuidado</strong>.
-                </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {valores.map(v => (
+            <div key={v.titulo} className={`${v.color} rounded-3xl p-6 border border-white shadow-sm`}>
+              <div className={`${v.iconBg} w-12 h-12 rounded-2xl flex items-center justify-center mb-4`}>
+                <v.icon className="text-white" size={22} />
               </div>
-              {/* Tag flotante */}
-              <div className="absolute -top-4 -right-4 bg-amber-500 text-white text-xs font-black px-4 py-2 rounded-full shadow-lg rotate-3">
-                Más que terapias 💛
-              </div>
+              <h3 className="font-bold text-lg mb-2 text-slate-900">{v.titulo}</h3>
+              <p className="text-sm text-slate-600">{v.texto}</p>
             </div>
-          </FadeIn>
-
-          <FadeIn delay={0.2}>
-            <div>
-              <span className="text-amber-500 font-bold text-xs uppercase tracking-widest">Nuestra misión ampliada</span>
-              <h2 className="text-4xl font-black text-slate-900 mt-2 mb-6 leading-tight">
-                Entornos más estables y resilientes
-              </h2>
-              <p className="text-slate-600 leading-relaxed text-lg">
-                Promovemos iniciativas que fortalezcan la autonomía, el bienestar y las oportunidades
-                de desarrollo de las personas cuidadoras, contribuyendo a acortar las
-                <strong className="text-slate-800"> brechas de desigualdad social</strong>.
-              </p>
-            </div>
-          </FadeIn>
+          ))}
         </div>
-      </div>
+      </section>
 
-      {/* ── EQUIPO TRANSDISCIPLINARIO ────────────────────────────────── */}
-      <div className="bg-gradient-to-br from-slate-900 to-slate-800 py-20 text-white">
-        <div className="max-w-5xl mx-auto px-6">
-          <FadeIn>
-            <div className="text-center mb-14">
-              <span className="text-sky-400 font-bold text-xs uppercase tracking-widest">Quiénes nos conforman</span>
-              <h2 className="text-4xl font-black mt-2">Equipo transdisciplinario</h2>
-              <p className="text-slate-400 mt-3 text-lg max-w-xl mx-auto">
-                Profesionales de distintas áreas trabajando juntos por un mismo propósito.
-              </p>
-            </div>
-          </FadeIn>
+      {/* ---------- EQUIPO ---------- */}
+      <section className="px-6 md:px-12 py-20 bg-sky-50">
+        <div className="max-w-6xl mx-auto">
 
-          <div className="flex flex-wrap justify-center gap-4">
-            {areas.map((a, i) => (
-              <FadeIn key={a.nombre} delay={i * 0.08}>
-                <div className="bg-white/10 backdrop-blur border border-white/20 rounded-2xl px-6 py-4 text-center hover:bg-white/20 transition-colors">
-                  <div className="text-3xl mb-2">{a.icono}</div>
-                  <p className="font-bold text-sm text-white">{a.nombre}</p>
-                </div>
-              </FadeIn>
-            ))}
+          <div className="text-center mb-4">
+            <span className="inline-block h-1.5 w-20 rounded-full bg-gradient-to-r from-blue-900 via-orange-400 to-amber-300" />
           </div>
-        </div>
-      </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-2 text-slate-900">
+            Las personas detrás de NEXO
+          </h2>
+          <p className="text-center text-slate-500 max-w-xl mx-auto mb-16">
+            Cada integrante del equipo sostiene un valor de la fundación: así es como
+            se conectan las distintas formas de acompañar a nuestras familias.
+          </p>
 
-      {/* ── CREENCIA CENTRAL ─────────────────────────────────────────── */}
-      <div className="max-w-4xl mx-auto px-6 py-24 text-center">
-        <FadeIn>
+          {/* Tarjetas conectadas por una línea, como una pequeña red de apoyo */}
           <div className="relative">
-            {/* Comillas decorativas */}
-            <div className="text-8xl text-violet-100 font-black leading-none select-none mb-2">"</div>
-            <p className="text-2xl md:text-3xl font-bold text-slate-800 leading-relaxed -mt-8">
-              La verdadera inclusión ocurre cuando apoyamos a las personas de manera integral,
-              fortaleciendo tanto sus capacidades como las de su entorno.
-            </p>
-            <div className="mt-8 w-16 h-1.5 bg-gradient-to-r from-violet-500 to-sky-500 rounded-full mx-auto" />
-            <p className="text-slate-500 font-semibold mt-4">Fundación Nexus Inclusiva</p>
-          </div>
-        </FadeIn>
+            {/* Línea conectora (solo en pantallas grandes) */}
+            <div className="hidden lg:block absolute top-[68px] left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent" />
 
-        <FadeIn delay={0.2}>
-          <div className="mt-16 bg-gradient-to-r from-violet-600 to-sky-600 rounded-3xl p-8 text-white text-left">
-            <h3 className="text-2xl font-black mb-3">🌍 Nuestra visión de sociedad</h3>
-            <p className="text-white/90 text-lg leading-relaxed">
-              Trabajamos para construir una sociedad más <strong>accesible, empática y justa</strong>,
-              donde cada persona pueda participar, crecer y desarrollarse con <strong>dignidad</strong>.
-            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-6">
+              {equipo.map((persona) => (
+                <div key={persona.nombre} className="flex flex-col items-center text-center">
+
+                  {/* Nodo de la red + foto */}
+                  <div className="relative mb-5">
+                    <span className={`hidden lg:block absolute -top-[44px] left-1/2 -translate-x-1/2 w-3 h-3 rounded-full ${persona.chip} ring-4 ring-sky-50`} />
+                    <div className={`w-28 h-28 rounded-full overflow-hidden border-4 ${persona.acento} shadow-md bg-white`}>
+                      <img src={persona.foto} alt={persona.nombre} className="w-full h-full object-cover" />
+                    </div>
+                  </div>
+
+                  <h3 className="font-bold text-slate-900">{persona.nombre}</h3>
+                  <span className={`text-xs font-semibold px-3 py-1 rounded-full mt-2 mb-3 ${persona.chip}`}>
+                    {persona.rol}
+                  </span>
+                  <p className="text-sm text-slate-500 italic">“{persona.frase}”</p>
+                </div>
+              ))}
+            </div>
           </div>
-        </FadeIn>
-      </div>
+        </div>
+      </section>
+
+      {/* ---------- CIERRE / CONTACTO ---------- */}
+      <section className="px-6 md:px-12 py-16">
+        <div className="max-w-4xl mx-auto bg-gradient-to-br from-blue-700 to-indigo-900 rounded-3xl p-10 md:p-14 text-center text-white shadow-lg">
+          <Heart className="mx-auto mb-4 text-blue-200" size={32} />
+          <h2 className="text-2xl md:text-3xl font-bold mb-3">
+            Aquí todos somos comprendidos, valorados y apoyados.
+          </h2>
+          <p className="text-blue-100 max-w-2xl mx-auto mb-8">
+            Un espacio seguro, inclusivo y lleno de oportunidades para crecer junto a tu familia.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link to="/" className="bg-white text-blue-800 font-bold px-6 py-3 rounded-full hover:bg-blue-50 transition-colors">
+              Para familias
+            </Link>
+            <Link to="/recursos" className="bg-white/10 border border-white/30 font-bold px-6 py-3 rounded-full hover:bg-white/20 transition-colors">
+              Para educadores
+            </Link>
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 }
