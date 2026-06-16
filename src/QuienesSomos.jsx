@@ -41,32 +41,32 @@ const valores = [
 // --- Equipo: cada integrante se asocia a un valor/acento de color de la fundación ---
 const equipo = [
   {
-    nombre: 'Matías Herrera',
-    rol: 'Director Ejecutivo',
+    nombre: 'Jeanet Faúdez',
+    rol: 'Tesorera',
     foto: matiasHerrera,
     acento: 'border-blue-400',
     chip: 'bg-blue-100 text-blue-700',
     frase: 'Conectar cada apoyo con la familia que lo necesita.',
   },
   {
-    nombre: 'Roberto Salinas',
-    rol: 'Presidente del Directorio',
+    nombre: 'Joyce Vergara',
+    rol: 'Fundadora y presidenta',
     foto: robertoSalinas,
     acento: 'border-amber-400',
     chip: 'bg-amber-100 text-amber-700',
     frase: 'Construir alianzas que sostengan a NEXO en el tiempo.',
   },
   {
-    nombre: 'Carolina Vidal',
-    rol: 'Coordinadora de Terapias',
+    nombre: 'Andres Vergara',
+    rol: 'Secretario',
     foto: carolinaVidal,
     acento: 'border-emerald-400',
     chip: 'bg-emerald-100 text-emerald-700',
     frase: 'Diseñar actividades que respeten el ritmo de cada niño o niña.',
   },
   {
-    nombre: 'Patricia Muñoz',
-    rol: 'Encargada de Comunicaciones',
+    nombre: 'Rodolfo Peime',
+    rol: 'Vicepresidente',
     foto: patriciaMunoz,
     acento: 'border-purple-400',
     chip: 'bg-purple-100 text-purple-700',
@@ -137,7 +137,7 @@ export default function SobreNosotros() {
             <span className="inline-block h-1.5 w-20 rounded-full bg-gradient-to-r from-blue-900 via-orange-400 to-amber-300" />
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-2 text-slate-900">
-            Las personas detrás de NEXO
+            Las personas detrás de NEXUS
           </h2>
           <p className="text-center text-slate-500 max-w-xl mx-auto mb-16">
             Cada integrante del equipo sostiene un valor de la fundación: así es como
