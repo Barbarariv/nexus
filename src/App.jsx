@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Routes, Route, Link, NavLink } from "react-router-dom";
 import Actividades from "./Actividades";
 import QuienesSomos from './QuienesSomos';
+import Rutinas from './Rutinas';
 
 // ── PLACEHOLDERS ──────────────────────────────────────────────────────────────
 function EnConstruccion({ titulo }) {
@@ -262,7 +263,7 @@ function App() {
       <Routes>
         <Route path="/"               element={<Home />} />
         <Route path="/actividades"    element={<Actividades />} />
-        <Route path="/rutinas"        element={<EnConstruccion titulo="Rutinas" />} />
+       <Route path="/rutinas" element={<Rutinas />} />
         <Route path="/comunicacion"   element={<EnConstruccion titulo="Comunicación" />} />
         <Route path="/juegos"         element={<EnConstruccion titulo="Juegos" />} />
         <Route path="/recursos"       element={<EnConstruccion titulo="Recursos" />} />
