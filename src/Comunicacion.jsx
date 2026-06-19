@@ -41,7 +41,7 @@ const HISTORIAS_INICIALES = [
     avatar: '👩',
     categoria: 'familia',
     titulo: 'Por fin encontramos nuestro lugar',
-    texto: 'Durante años busqué un espacio donde mi hija se sintiera comprendida. Valentina tiene TDAH y era muy difícil explicarle a la gente por qué a veces necesita moverse, gritar o simplemente no estar quieta. Desde que llegamos a NEXO, ella misma dice "aquí me entienden". Eso lo es todo para mí como mamá.',
+    texto: 'Durante años busqué un espacio donde mi hija se sintiera comprendida. Valentina tiene TDAH y era muy difícil explicarle a la gente por qué a veces necesita moverse, gritar o simplemente no estar quieta. Desde que llegamos a NEXUS, ella misma dice "aquí me entienden". Eso lo es todo para mí como mamá.',
     fecha: '2026-06-01',
     likes: 24,
     comentarios: [
@@ -54,7 +54,7 @@ const HISTORIAS_INICIALES = [
     avatar: '🧑',
     categoria: 'joven',
     titulo: 'Aprendí que ser diferente no es un defecto',
-    texto: 'Soy autista de alto funcionamiento y toda mi vida pensé que algo estaba mal conmigo. En el colegio me costaba hacer amigos y no entendía por qué. Las actividades de NEXO me ayudaron a conocerme mejor y a entender cómo funciona mi cerebro. Ahora lo veo como una fortaleza, no como un problema.',
+    texto: 'Soy autista de alto funcionamiento y toda mi vida pensé que algo estaba mal conmigo. En el colegio me costaba hacer amigos y no entendía por qué. Las actividades de NEXUS me ayudaron a conocerme mejor y a entender cómo funciona mi cerebro. Ahora lo veo como una fortaleza, no como un problema.',
     fecha: '2026-06-05',
     likes: 31,
     comentarios: [
@@ -67,8 +67,8 @@ const HISTORIAS_INICIALES = [
     autor: 'Educadora diferencial, Escuela Los Pinos',
     avatar: '👩‍🏫',
     categoria: 'educador',
-    titulo: 'Cómo NEXO transformó mi sala de clases',
-    texto: 'Trabajo con niños y niñas neurodivergentes hace 10 años. Lo que más me costaba era encontrar materiales accesibles y actividades que realmente se adaptaran a cada ritmo. Empecé a usar los recursos de NEXO con mis estudiantes y la diferencia fue inmediata: más participación, menos angustia y sobre todo, más alegría. Ojalá más docentes conocieran este espacio.',
+    titulo: 'Cómo NEXUS transformó mi sala de clases',
+    texto: 'Trabajo con niños y niñas neurodivergentes hace 10 años. Lo que más me costaba era encontrar materiales accesibles y actividades que realmente se adaptaran a cada ritmo. Empecé a usar los recursos de NEXUS con mis estudiantes y la diferencia fue inmediata: más participación, menos angustia y sobre todo, más alegría. Ojalá más docentes conocieran este espacio.',
     fecha: '2026-06-10',
     likes: 18,
     comentarios: [],
@@ -79,7 +79,7 @@ const HISTORIAS_INICIALES = [
     avatar: '👵',
     categoria: 'familia',
     titulo: 'Nunca es tarde para aprender a acompañar',
-    texto: 'Cuando mi nieto fue diagnosticado, yo no entendía nada. En mi época no se hablaba de esto. Pero empecé a leer los recursos de NEXO para familias y me di cuenta de que el amor no es suficiente si no viene acompañado de comprensión. Hoy soy la abuela que Emilio necesita, y eso me llena el corazón.',
+    texto: 'Cuando mi nieto fue diagnosticado, yo no entendía nada. En mi época no se hablaba de esto. Pero empecé a leer los recursos de NEXUS para familias y me di cuenta de que el amor no es suficiente si no viene acompañado de comprensión. Hoy soy la abuela que Emilio necesita, y eso me llena el corazón.',
     fecha: '2026-06-12',
     likes: 42,
     comentarios: [
@@ -141,7 +141,7 @@ function ModalHistoria({ onGuardar, onCerrar }) {
       <div className="bg-white rounded-3xl p-10 text-center shadow-2xl">
         <div className="text-6xl mb-3">🎉</div>
         <h3 className="font-black text-slate-900 text-xl mb-1">¡Historia compartida!</h3>
-        <p className="text-slate-500 text-sm">Gracias por ser parte de la comunidad NEXO.</p>
+        <p className="text-slate-500 text-sm">Gracias por ser parte de la comunidad NEXUS.</p>
       </div>
     </div>
   );
@@ -203,7 +203,7 @@ function ModalHistoria({ onGuardar, onCerrar }) {
           <div>
             <label className="text-sm font-bold text-slate-600 mb-1 block">Cuéntanos tu historia</label>
             <textarea value={texto} onChange={e => setTexto(e.target.value)} rows={5}
-              placeholder="Comparte tu experiencia con la comunidad NEXO..."
+              placeholder="Comparte tu experiencia con la comunidad NEXUS..."
               className="w-full border-2 border-slate-200 rounded-xl px-4 py-2 font-semibold focus:border-pink-400 focus:outline-none text-sm resize-none" />
             <p className="text-xs text-slate-400 mt-1 text-right">{texto.length} caracteres</p>
           </div>
@@ -542,3 +542,4 @@ export default function Comunicacion() {
     </div>
   );
 }
+

@@ -41,32 +41,32 @@ const valores = [
 // --- Equipo: cada integrante se asocia a un valor/acento de color de la fundación ---
 const equipo = [
   {
-    nombre: 'Jeanet Faúdez',
-    rol: 'Tesorera',
+    nombre: 'Matías Herrera',
+    rol: 'Director Ejecutivo',
     foto: matiasHerrera,
     acento: 'border-blue-400',
     chip: 'bg-blue-100 text-blue-700',
     frase: 'Conectar cada apoyo con la familia que lo necesita.',
   },
   {
-    nombre: 'Joyce Vergara',
-    rol: 'Fundadora y presidenta',
+    nombre: 'Roberto Salinas',
+    rol: 'Presidente del Directorio',
     foto: robertoSalinas,
     acento: 'border-amber-400',
     chip: 'bg-amber-100 text-amber-700',
-    frase: 'Construir alianzas que sostengan a NEXO en el tiempo.',
+    frase: 'Construir alianzas que sostengan a NEXUS en el tiempo.',
   },
   {
-    nombre: 'Andres Vergara',
-    rol: 'Secretario',
+    nombre: 'Carolina Vidal',
+    rol: 'Coordinadora de Terapias',
     foto: carolinaVidal,
     acento: 'border-emerald-400',
     chip: 'bg-emerald-100 text-emerald-700',
     frase: 'Diseñar actividades que respeten el ritmo de cada niño o niña.',
   },
   {
-    nombre: 'Rodolfo Peime',
-    rol: 'Vicepresidente',
+    nombre: 'Patricia Muñoz',
+    rol: 'Encargada de Comunicaciones',
     foto: patriciaMunoz,
     acento: 'border-purple-400',
     chip: 'bg-purple-100 text-purple-700',
@@ -114,7 +114,7 @@ export default function SobreNosotros() {
       {/* ---------- VALORES ---------- */}
       <section className="px-6 md:px-12 py-16 max-w-6xl mx-auto">
         <h2 className="text-3xl font-bold text-center mb-2 text-slate-900">Lo que nos guía</h2>
-        <p className="text-center text-slate-500 mb-12">Cuatro ideas que sostienen todo lo que hacemos en NEXO.</p>
+        <p className="text-center text-slate-500 mb-12">Cuatro ideas que sostienen todo lo que hacemos en NEXUS.</p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {valores.map(v => (
